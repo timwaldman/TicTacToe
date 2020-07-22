@@ -39,21 +39,20 @@ MIDRIGHTRECT = pygame.Rect(XMARGIN + (2 * BUTTONSIZE) + (2 * BUTTONGAPSIZE), YMA
 BOTLEFTRECT = pygame.Rect(XMARGIN, YMARGIN + (2 * BUTTONSIZE) + (2 * BUTTONGAPSIZE), BUTTONSIZE, BUTTONSIZE)
 BOTMIDRECT = pygame.Rect(XMARGIN + BUTTONSIZE + BUTTONGAPSIZE, YMARGIN + (2 * BUTTONSIZE) + (2 * BUTTONGAPSIZE), BUTTONSIZE, BUTTONSIZE)
 BOTRIGHTRECT = pygame.Rect(XMARGIN + (2 * BUTTONSIZE) + (2 * BUTTONGAPSIZE), YMARGIN + (2 * BUTTONSIZE) + (2 * BUTTONGAPSIZE), BUTTONSIZE, BUTTONSIZE)
-# define x and o
 
 
 # start main game loop
 def main():
-# define global variables
+    # define global variables
     global DISPLAYSURF, board, current_player, game_over, run, moves_count, BGCOLOR
-# initializeglobal DISPLAYSURF, board, current_player, game_over, run
+    # initializeglobal DISPLAYSURF, board, current_player, game_over, run
     pygame.init()
-# create window display
+    # create window display
     DISPLAYSURF = pygame.display.set_mode((WIDTH, HEIGHT))
     DISPLAYSURF.fill(BGCOLOR)
-# add caption to window
+    # add caption to window
     pygame.display.set_caption("TicTacToe")
-# create game board array tracker
+    # create game board array tracker
     initialize_game()
 
     while run: # main game loop
@@ -69,6 +68,8 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     initialize_game()
+                if event.key == pygame.K_ESCAPE:
+                    terminate()
 
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
